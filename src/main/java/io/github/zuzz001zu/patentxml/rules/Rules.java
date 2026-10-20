@@ -10,7 +10,12 @@ public final class Rules {
             new KindCodeRule(),
             new PublicationLanguageRule(),
             new EarlyPublicationRule(),
-            new ApplicationNumberRule());
+            new ApplicationNumberRule(),
+            new CalendarDateRule(),
+            new DateOrderRule(),
+            new PriorityPeriodRule(),
+            new PriorityClaimKindRule(),
+            new DuplicatePriorityRule());
 
     private Rules() {
     }
