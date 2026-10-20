@@ -1,5 +1,7 @@
 package io.github.zuzz001zu.patentxml.rules;
 
+import io.github.zuzz001zu.patentxml.TestXml;
+import io.github.zuzz001zu.patentxml.ValidationResult;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -30,9 +32,38 @@ class ApplicationAndDateRulesTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"PCT/IB2025/050211", "PCT/EP2025/050211", "PCT/US2025/050211"})
+    @ValueSource(strings = {"PCT/IB2025/050211", "PCT/EP2025/050211"})
     void internationalBureauAndRegionalOfficesAreReceivingOffices(String number) {
         assertEquals(List.of(), ruleIds(applicationNumber(number)));
+    }
+
+    @Test
+    void nationalOfficeOfAnotherCountryIsAWarning() {
+        // the only applicant is Swiss, so RO/US is not competent
+        ValidationResult result = TestXml.validate(applicationNumber("PCT/US2025/050211"));
+
+        assertEquals(List.of("APP-02"), result.findings().stream().map(Finding::ruleId).toList());
+        assertEquals(Severity.WARNING, result.findings().getFirst().severity());
+        assertEquals(14, result.findings().getFirst().line());
+    }
+
+    @Test
+    void residenceIsEnoughForCompetence() {
+        String xml = TestXml.replace(applicationNumber("PCT/FR2025/050211"),
+                "<residence><country>CH</country></residence>", "<residence><country>FR</country></residence>");
+        assertEquals(List.of(), ruleIds(xml));
+    }
+
+    @Test
+    void oneCompetentApplicantIsEnough() {
+        String second = """
+                <applicant sequence="2">
+                          <name>Universite de Lyon</name>
+                          <nationality><country>FR</country></nationality>
+                        </applicant>
+                      </applicants>""";
+        String xml = TestXml.replace(applicationNumber("PCT/FR2025/050211"), "</applicants>", second);
+        assertEquals(List.of(), ruleIds(xml));
     }
 
     @Test

@@ -25,6 +25,7 @@ class SamplesTest {
             "wo2025-129050-code-errors.xml,          INVALID, PUB-04 PUB-03 APP-01 LNG-01 CLS-01 CLS-01 CTY-01",
             "wo2025-130412-claim-errors.xml,         INVALID, PRI-03 PRI-02 SEQ-01",
             "wo2025-131877-schema-errors.xml,        INVALID, XSD-01 XSD-01 XSD-01",
+            "wo2025-133610-orion-photonics.xml,      WARNING, APP-02",
             "broken-not-well-formed.xml,             INVALID, XML-01",
             "xxe-attempt.xml,                        INVALID, XML-01"})
     void sampleGivesTheExpectedResult(String file, ValidationResult.Status status, String rules) throws IOException {

@@ -48,7 +48,7 @@ class MainTest {
     void validatingTheSamplesFailsBecauseSomeAreInvalid(@TempDir Path dir) throws IOException {
         assertEquals(Main.FINDINGS, run(validate(dir, "samples")));
 
-        assertTrue(stdout().contains("11 documents: 3 valid, 2 with warnings, 6 invalid"), stdout());
+        assertTrue(stdout().contains("12 documents: 3 valid, 3 with warnings, 6 invalid"), stdout());
         assertTrue(Files.readString(dir.resolve("report.html")).contains("Patent XML validation report"));
         assertTrue(Files.exists(dir.resolve("findings.csv")));
     }

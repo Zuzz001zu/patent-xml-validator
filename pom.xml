@@ -6,7 +6,7 @@
 
     <groupId>io.github.zuzz001zu</groupId>
     <artifactId>patent-xml-validator</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <name>patent-xml-validator</name>
     <description>Validates PCT bibliographic data in XML against a schema and PCT business rules</description>
 

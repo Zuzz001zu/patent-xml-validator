@@ -11,6 +11,7 @@ public final class Rules {
             new PublicationLanguageRule(),
             new EarlyPublicationRule(),
             new ApplicationNumberRule(),
+            new ReceivingOfficeRule(),
             new CalendarDateRule(),
             new DateOrderRule(),
             new PriorityPeriodRule(),
