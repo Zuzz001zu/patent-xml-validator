@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - name: Compile, test and package
+        run: mvn -B -ntp verify
+
+      - name: Validate the sample files
+        run: |
+          java -jar target/patent-xml-validator-*.jar validate samples \
+            --db target/validation-results \
+            --report target/validation-report.html \
+            --csv target/findings.csv \
+            --fail-on never
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: validation-report
+          path: |
+            target/validation-report.html
+            target/findings.csv
