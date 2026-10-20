@@ -1,0 +1,15 @@
+target/
+*.class
+
+# local runs
+validation-results.mv.db
+validation-results.trace.db
+*.mv.db
+*.trace.db
+validation-report.html
+findings.csv
+
+.idea/
+*.iml
+.vscode/
+.DS_Store
