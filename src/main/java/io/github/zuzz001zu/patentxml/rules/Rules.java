@@ -15,7 +15,13 @@ public final class Rules {
             new DateOrderRule(),
             new PriorityPeriodRule(),
             new PriorityClaimKindRule(),
-            new DuplicatePriorityRule());
+            new DuplicatePriorityRule(),
+            new IpcSymbolRule(),
+            new SequenceRule(),
+            new CountryCodeRule(),
+            new LanguageCodeRule(),
+            new TitleLanguageRule(),
+            new TitleLengthRule());
 
     private Rules() {
     }
