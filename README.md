@@ -39,6 +39,7 @@ problems can be traced back to their source (for example, to a receiving office)
 | PUB-04 | error | Publication language is one of the ten PCT publication languages | Rule 48.3(a) |
 | PUB-05 | warning | First publication before 18 months from the priority date | Art. 21(2) |
 | APP-01 | error | Application number is `PCT/CCYYYY/NNNNNN`, `CC` a receiving office, `YYYY` the filing year | |
+| APP-02 | warning | A national receiving office matches the nationality or residence of an applicant | Rule 19.1, 19.4 |
 | DAT-01 | error | Dates exist in the calendar (`20250231` passes the schema, not this rule) | |
 | DAT-02 | error | Priority date < filing date ≤ publication date | |
 | PRI-01 | error / warning | Filed within 12 months of each priority date; 12-14 months is a warning (restoration) | Art. 8, Rule 26bis.3 |
@@ -60,7 +61,7 @@ Requires Java 21 and Maven.
 
 ```bash
 mvn package
-java -jar target/patent-xml-validator-1.0.0.jar validate samples
+java -jar target/patent-xml-validator-1.1.0.jar validate samples
 ```
 
 ```text
@@ -71,7 +72,7 @@ WARNING  wo2025-124415-andina-agro.xml            0 error(s), 2 warning(s)
 INVALID  wo2025-130412-claim-errors.xml           3 error(s), 0 warning(s)
 INVALID  xxe-attempt.xml                          1 error(s), 0 warning(s)
 
-11 documents: 3 valid, 2 with warnings, 6 invalid (run 1)
+12 documents: 3 valid, 3 with warnings, 6 invalid (run 1)
 Report: /…/validation-report.html
 ```
 
@@ -114,8 +115,8 @@ XML file ─► secure SAX parser + XSD ─► DOM with line numbers ─► mode
 
 ## Sample data
 
-[`samples/`](samples) contains eleven fictional publications (applicants, numbers and
-inventors are invented): three valid ones, two with warnings and six with typical errors,
+[`samples/`](samples) contains twelve fictional publications (applicants, numbers and
+inventors are invented): three valid ones, three with warnings and six with typical errors,
 including a file that is not well-formed and an XXE attempt. `SamplesTest` checks that each
 file gives exactly the expected findings, so the samples also serve as regression tests.
 
@@ -126,7 +127,8 @@ file gives exactly the expected findings, so the samples also serve as regressio
 - Time limits do not take into account the extension when a period ends on a day the
   office is closed (Rule 80.5).
 - Receiving office codes are checked against country codes plus IB, EP, EA, AP and OA, not
-  against the current list of competent receiving offices.
+  against the current list of receiving offices. The competence check (APP-02) covers national
+  offices only; regional offices would need the list of their member states.
 
 ## Project structure
 
