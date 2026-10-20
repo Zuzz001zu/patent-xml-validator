@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Bibliographic data of an international (PCT) publication.
+
+  The element names follow WIPO Standard ST.36 (patent-document, bibliographic-data,
+  publication-reference, priority-claims, classifications-ipcr, parties...).
+  This is a deliberately reduced subset: it covers the fields checked by the business
+  rules and is not a replacement for the official ST.36 / ST.96 schemas.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="patent-document">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bibliographic-data" type="BibliographicData"/>
+            </xs:sequence>
+            <xs:attribute name="lang" type="LanguageCode" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="BibliographicData">
+        <xs:sequence>
+            <xs:element name="publication-reference" type="PublicationReference"/>
+            <xs:element name="application-reference" type="ApplicationReference"/>
+            <xs:element name="language-of-filing" type="LanguageCode"/>
+            <xs:element name="priority-claims" type="PriorityClaims" minOccurs="0"/>
+            <xs:element name="classifications-ipcr" type="Classifications"/>
+            <xs:element name="parties" type="Parties"/>
+            <xs:element name="invention-title" type="InventionTitle" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PublicationReference">
+        <xs:sequence>
+            <xs:element name="document-id">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="country" type="CountryCode"/>
+                        <xs:element name="doc-number" type="NonEmptyString"/>
+                        <xs:element name="kind" type="KindCode"/>
+                        <xs:element name="date" type="Date8"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ApplicationReference">
+        <xs:sequence>
+            <xs:element name="document-id">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="doc-number" type="NonEmptyString"/>
+                        <xs:element name="date" type="Date8"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PriorityClaims">
+        <xs:sequence>
+            <xs:element name="priority-claim" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="country" type="CountryCode"/>
+                        <xs:element name="doc-number" type="NonEmptyString"/>
+                        <xs:element name="date" type="Date8"/>
+                    </xs:sequence>
+                    <xs:attribute name="sequence" type="xs:positiveInteger" use="required"/>
+                    <xs:attribute name="kind" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="national"/>
+                                <xs:enumeration value="regional"/>
+                                <xs:enumeration value="international"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Classifications">
+        <xs:sequence>
+            <xs:element name="classification-ipcr" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="text" type="NonEmptyString"/>
+                    </xs:sequence>
+                    <xs:attribute name="sequence" type="xs:positiveInteger" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Parties">
+        <xs:sequence>
+            <xs:element name="applicants">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="applicant" type="Party" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="inventors" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="inventor" type="Party" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Party">
+        <xs:sequence>
+            <xs:element name="name" type="NonEmptyString"/>
+            <xs:element name="nationality" type="CountryHolder" minOccurs="0"/>
+            <xs:element name="residence" type="CountryHolder" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="sequence" type="xs:positiveInteger" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CountryHolder">
+        <xs:sequence>
+            <xs:element name="country" type="CountryCode"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="InventionTitle">
+        <xs:simpleContent>
+            <xs:extension base="NonEmptyString">
+                <xs:attribute name="lang" type="LanguageCode" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- The patterns only check the shape; real code lists are checked by the rules. -->
+
+    <xs:simpleType name="Date8">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{8}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="CountryCode">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="LanguageCode">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-z]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="KindCode">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z][0-9]?"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- xs:token collapses whitespace, so a value made only of spaces is rejected -->
+    <xs:simpleType name="NonEmptyString">
+        <xs:restriction base="xs:token">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
