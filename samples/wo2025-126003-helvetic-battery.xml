@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patent-document lang="en">
+  <bibliographic-data>
+    <publication-reference>
+      <document-id>
+        <country>WO</country>
+        <doc-number>2025/126003</doc-number>
+        <kind>A1</kind>
+        <date>20251016</date>
+      </document-id>
+    </publication-reference>
+    <application-reference>
+      <document-id>
+        <doc-number>PCT/EP2025/071644</doc-number>
+        <date>20250801</date>
+      </document-id>
+    </application-reference>
+    <language-of-filing>en</language-of-filing>
+    <priority-claims>
+      <priority-claim sequence="1" kind="national">
+        <country>CH</country>
+        <doc-number>000962/2024</doc-number>
+        <date>20240808</date>
+      </priority-claim>
+    </priority-claims>
+    <classifications-ipcr>
+      <classification-ipcr sequence="1"><text>H01M 10/0525</text></classification-ipcr>
+      <classification-ipcr sequence="2"><text>H01M 4/131</text></classification-ipcr>
+    </classifications-ipcr>
+    <parties>
+      <applicants>
+        <applicant sequence="1">
+          <name>Helvetic Battery Systems AG</name>
+          <nationality><country>CH</country></nationality>
+          <residence><country>CH</country></residence>
+        </applicant>
+        <applicant sequence="2">
+          <name>Ecole d'ingénierie du Léman</name>
+          <nationality><country>CH</country></nationality>
+          <residence><country>CH</country></residence>
+        </applicant>
+      </applicants>
+      <inventors>
+        <inventor sequence="1"><name>ROCHAT, Julien</name></inventor>
+        <inventor sequence="2"><name>WEBER, Anna</name></inventor>
+      </inventors>
+    </parties>
+    <invention-title lang="en">Solid electrolyte layer for lithium-ion cells</invention-title>
+  </bibliographic-data>
+</patent-document>

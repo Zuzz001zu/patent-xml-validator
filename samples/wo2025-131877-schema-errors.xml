@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patent-document lang="en">
+  <bibliographic-data>
+    <publication-reference>
+      <document-id>
+        <country>WO</country>
+        <doc-number>2025/131877</doc-number>
+        <kind>A2</kind>
+        <date>2025-12-04</date>
+      </document-id>
+    </publication-reference>
+    <application-reference>
+      <document-id>
+        <doc-number>PCT/US2025/031877</doc-number>
+        <date>20250604</date>
+      </document-id>
+    </application-reference>
+    <priority-claims>
+      <priority-claim sequence="1" kind="domestic">
+        <country>US</country>
+        <doc-number>63/661,204</doc-number>
+        <date>20240605</date>
+      </priority-claim>
+    </priority-claims>
+    <classifications-ipcr>
+      <classification-ipcr sequence="1"><text>G06N 20/00</text></classification-ipcr>
+    </classifications-ipcr>
+    <parties>
+      <applicants>
+        <applicant sequence="1">
+          <name>Bluefir Analytics Inc.</name>
+          <nationality><country>US</country></nationality>
+          <residence><country>US</country></residence>
+        </applicant>
+      </applicants>
+    </parties>
+    <invention-title lang="en">Anomaly detection in streaming sensor data</invention-title>
+  </bibliographic-data>
+</patent-document>

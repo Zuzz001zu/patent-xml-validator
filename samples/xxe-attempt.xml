@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A file that tries to read a local file through an external entity (XXE). It must be rejected. -->
+<!DOCTYPE patent-document [
+  <!ENTITY secret SYSTEM "file:///etc/passwd">
+]>
+<patent-document lang="en">
+  <bibliographic-data>
+    <publication-reference>
+      <document-id>
+        <country>WO</country>
+        <doc-number>&secret;</doc-number>
+        <kind>A1</kind>
+        <date>20251211</date>
+      </document-id>
+    </publication-reference>
+  </bibliographic-data>
+</patent-document>

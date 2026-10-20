@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patent-document lang="pt">
+  <bibliographic-data>
+    <publication-reference>
+      <document-id>
+        <country>WO</country>
+        <doc-number>2025/124415</doc-number>
+        <kind>A1</kind>
+        <date>20251106</date>
+      </document-id>
+    </publication-reference>
+    <application-reference>
+      <document-id>
+        <doc-number>PCT/BR2025/050147</doc-number>
+        <date>20250416</date>
+      </document-id>
+    </application-reference>
+    <language-of-filing>pt</language-of-filing>
+    <priority-claims>
+      <priority-claim sequence="1" kind="national">
+        <country>BR</country>
+        <doc-number>BR 10 2024 004418-2</doc-number>
+        <date>20240305</date>
+      </priority-claim>
+    </priority-claims>
+    <classifications-ipcr>
+      <classification-ipcr sequence="1"><text>A01C 7/20</text></classification-ipcr>
+    </classifications-ipcr>
+    <parties>
+      <applicants>
+        <applicant sequence="1">
+          <name>Andina Agro Ltda.</name>
+          <nationality><country>BR</country></nationality>
+          <residence><country>BR</country></residence>
+        </applicant>
+      </applicants>
+      <inventors>
+        <inventor sequence="1"><name>FERREIRA SANTOS, Marcos</name></inventor>
+      </inventors>
+    </parties>
+    <invention-title lang="pt">Semeadora de precisão com controle de profundidade</invention-title>
+    <invention-title lang="en">Precision seed drill with an automatic depth control system using soil moisture sensors mounted on each row unit and a central controller</invention-title>
+  </bibliographic-data>
+</patent-document>

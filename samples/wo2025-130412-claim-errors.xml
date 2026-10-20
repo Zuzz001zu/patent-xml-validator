@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patent-document lang="de">
+  <bibliographic-data>
+    <publication-reference>
+      <document-id>
+        <country>WO</country>
+        <doc-number>2025/130412</doc-number>
+        <kind>A1</kind>
+        <date>20251127</date>
+      </document-id>
+    </publication-reference>
+    <application-reference>
+      <document-id>
+        <doc-number>PCT/DE2025/100412</doc-number>
+        <date>20250520</date>
+      </document-id>
+    </application-reference>
+    <language-of-filing>de</language-of-filing>
+    <priority-claims>
+      <priority-claim sequence="1" kind="regional">
+        <country>EP</country>
+        <doc-number>24183011.1</doc-number>
+        <date>20240527</date>
+      </priority-claim>
+      <priority-claim sequence="2" kind="regional">
+        <country>EP</country>
+        <doc-number>24 183 011.1</doc-number>
+        <date>20240527</date>
+      </priority-claim>
+      <priority-claim sequence="3" kind="regional">
+        <country>DE</country>
+        <doc-number>10 2024 114 200.5</doc-number>
+        <date>20240529</date>
+      </priority-claim>
+    </priority-claims>
+    <classifications-ipcr>
+      <classification-ipcr sequence="1"><text>B60L 53/16</text></classification-ipcr>
+    </classifications-ipcr>
+    <parties>
+      <applicants>
+        <applicant sequence="1">
+          <name>Voltwerk Ladesysteme GmbH</name>
+          <nationality><country>DE</country></nationality>
+          <residence><country>DE</country></residence>
+        </applicant>
+        <applicant sequence="3">
+          <name>Technische Hochschule Rheinau</name>
+          <nationality><country>DE</country></nationality>
+          <residence><country>DE</country></residence>
+        </applicant>
+      </applicants>
+    </parties>
+    <invention-title lang="de">Ladestecker mit Temperaturüberwachung</invention-title>
+  </bibliographic-data>
+</patent-document>

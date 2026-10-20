@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patent-document lang="fr">
+  <bibliographic-data>
+    <publication-reference>
+      <document-id>
+        <country>WO</country>
+        <doc-number>2024/127781</doc-number>
+        <kind>A1</kind>
+        <date>20251204</date>
+      </document-id>
+    </publication-reference>
+    <application-reference>
+      <document-id>
+        <doc-number>PCT/FR2025/051290</doc-number>
+        <date>20250528</date>
+      </document-id>
+    </application-reference>
+    <language-of-filing>fr</language-of-filing>
+    <priority-claims>
+      <priority-claim sequence="1" kind="national">
+        <country>FR</country>
+        <doc-number>FR2406123</doc-number>
+        <date>20240230</date>
+      </priority-claim>
+      <priority-claim sequence="2" kind="national">
+        <country>FR</country>
+        <doc-number>FR2406987</doc-number>
+        <date>20250602</date>
+      </priority-claim>
+    </priority-claims>
+    <classifications-ipcr>
+      <classification-ipcr sequence="1"><text>F24S 10/70</text></classification-ipcr>
+    </classifications-ipcr>
+    <parties>
+      <applicants>
+        <applicant sequence="1">
+          <name>Soléa Énergie SAS</name>
+          <nationality><country>FR</country></nationality>
+          <residence><country>FR</country></residence>
+        </applicant>
+      </applicants>
+    </parties>
+    <invention-title lang="fr">Capteur solaire thermique à double vitrage</invention-title>
+  </bibliographic-data>
+</patent-document>
